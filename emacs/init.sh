@@ -2,7 +2,11 @@
 
 SCRIPTPATH=$(dirname $(readlink -f "$0"))
 
-sudo pacman -Sy emacs
+if hash pacman 2>/dev/null; then
+    sudo pacman -Sy emacs
+else
+    echo "No pacman, install emacs some other way"
+fi
 
 git clone https://github.com/syl20bnr/spacemacs "$HOME/.emacs.d"
 

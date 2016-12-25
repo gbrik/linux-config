@@ -5,9 +5,12 @@ SCRIPTPATH=$(dirname $(readlink -f "$0"))
 echo "make sure you have video drivers installed"
 echo "see https://wiki.archlinux.org/index.php/xorg#Driver_installation"
 
-sudo pacman -Sy \
-	xf86-input-libinput xorg-server xorg-xinit \
-	rxvt-unicode bspwm sxhkd dmenu compton
+if hash pacman 2>/dev/null; then
+    sudo pacman -Sy \
+	       xf86-input-libinput xorg-server xorg-xinit \
+	       rxvt-unicode bspwm sxhkd dmenu compton
+else
+    echo "No pacman, install packages from $SCRIPTPATH/init.sh some other way."
 
 echo "
 if [ -z \"\$DISPLAY\" ] && [ -n \"\$XDG_VTNR\" ] && [ \"\$XDG_VTNR\" -eq 1 ]; then
