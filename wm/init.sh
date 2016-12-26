@@ -8,9 +8,11 @@ echo "see https://wiki.archlinux.org/index.php/xorg#Driver_installation"
 if hash pacman 2>/dev/null; then
     sudo pacman -Sy \
 	       xf86-input-libinput xorg-server xorg-xinit \
-	       rxvt-unicode bspwm sxhkd dmenu compton
+	       rxvt-unicode bspwm sxhkd dmenu compton \
+         adobe-source-code-pro-fonts
 else
     echo "No pacman, install packages from $SCRIPTPATH/init.sh some other way."
+fi
 
 echo "
 if [ -z \"\$DISPLAY\" ] && [ -n \"\$XDG_VTNR\" ] && [ \"\$XDG_VTNR\" -eq 1 ]; then
@@ -33,4 +35,3 @@ mkdir -p "$HOME/.config/bspwm" "$HOME/.config/sxhkd"
 
 ln -s "$SCRIPTPATH/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
 ln -s "$SCRIPTPATH/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
-fi
