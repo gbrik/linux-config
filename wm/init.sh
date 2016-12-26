@@ -33,3 +33,4 @@ mkdir -p "$HOME/.config/bspwm" "$HOME/.config/sxhkd"
 
 ln -s "$SCRIPTPATH/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
 ln -s "$SCRIPTPATH/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
+fi
