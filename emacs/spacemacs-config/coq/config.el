@@ -9,5 +9,5 @@
 ;;
 ;;; License: GPLv3
 
-(defvar proof-general-path "/home/gbrik/progtools/proof-general/generic/proof-site"
+(defvar proof-general-path "/usr/share/emacs/site-lisp/ProofGeneral/generic/proof-site"
   "The path to proof general")
