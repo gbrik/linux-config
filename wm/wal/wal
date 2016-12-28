@@ -100,7 +100,7 @@ set_special() {
 send_sequences() {
     # Create string of escape sequences to send to the terminals.
     set_special 10  "${colors[15]}"
-    set_special 11  "${colors[0]}"
+    #set_special 11  "${colors[0]}"
     set_special 12  "${colors[15]}"
     set_special 13  "${colors[15]}"
     set_special 14  "${colors[0]}"
