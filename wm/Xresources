@@ -1,0 +1,9 @@
+*background: #000000
+urxvt*background: rgba:0000/0000/0000/c800
+! urxvt*borderColor: rgba:0000/0000/0000/c800
+urxvt*depth: 32
+urxvt*font: xft:Source Code Pro:pixelsize=12
+! urxvt*letterSpace: -2
+urxvt.scrollBar: false
+urxvt.internalBorder: 0
+xterm*faceName: Source Code Pro:pixelsize=12

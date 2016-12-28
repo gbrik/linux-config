@@ -30,9 +30,11 @@ ExecStart=
 ExecStart=-/usr/bin/agetty --autologin gbrik --noclear %I \$TERM
 Type=simple" | sudo tee -a "$GETTYDIR/override.conf"
 
-echo "exec bspwm" >> "$HOME/.xinitrc"
-
 mkdir -p "$HOME/.config/bspwm" "$HOME/.config/sxhkd"
 
 ln -s "$SCRIPTPATH/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
 ln -s "$SCRIPTPATH/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
+ln -s "$SCRIPTPATH/xinitrc" "$HOME/.xinitrc"
+ln -s "$SCRIPTPATH/bash_profile" "$HOME/.bash_profile"
+ln -s "$SCRIPTPATH/Xresources" "$HOME/.Xresources"
+ln -s "$SCRIPTPATH/bashrc" "$HOME/.bashrc"
