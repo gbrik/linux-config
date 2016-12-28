@@ -9,7 +9,6 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export PATH="$PATH:$HOME/scripts"
-export PATH="$PATH:$HOME/scripts/wal"
 
 wal -r
 
