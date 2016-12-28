@@ -2,7 +2,7 @@
 
 SCRIPTPATH=$(dirname $(readlink -f "$0"))
 
-if hash pacman 2>/dev/null; then
+if type -p pacman >/dev/null; then
     sudo pacman -Sy emacs
 else
     echo "No pacman, install emacs some other way"

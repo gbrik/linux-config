@@ -5,19 +5,20 @@ SCRIPTPATH=$(dirname $(readlink -f "$0"))
 echo "make sure you have video drivers installed"
 echo "see https://wiki.archlinux.org/index.php/xorg#Driver_installation"
 
-if hash pacman 2>/dev/null; then
+if type -p pacman >/dev/null; then
     sudo pacman -Sy \
 	       xf86-input-libinput xorg-server xorg-xinit \
-	       rxvt-unicode bspwm sxhkd dmenu compton \
-         adobe-source-code-pro-fonts
+	       bspwm sxhkd dmenu \
+               compton transset-df \
+               adobe-source-code-pro-fonts
 else
     echo "No pacman, install packages from $SCRIPTPATH/init.sh some other way."
 fi
-
-echo "
-if [ -z \"\$DISPLAY\" ] && [ -n \"\$XDG_VTNR\" ] && [ \"\$XDG_VTNR\" -eq 1 ]; then
-  exec startx
-fi" >> "$HOME/.bash_profile"
+if type -p yaourt >/dev/null; then
+    sudo yaourt -Sy xterm
+else
+    echo "No yaourt, install packages from $SCRIPTPATH/init.sh some other way."
+fi
 
 GETTYDIR=/etc/systemd/system/getty@tty1.service.d
 
