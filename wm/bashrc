@@ -13,3 +13,4 @@ export PATH="$PATH:$HOME/scripts"
 wal -r
 
 [ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID" >/dev/null
+shopt -s direxpand
