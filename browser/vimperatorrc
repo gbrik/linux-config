@@ -1,0 +1,16 @@
+" remove bad default bindings
+map d <nop>
+
+" gui
+set gui=nonavigation
+
+" tab movement
+map J <C-p>
+map K <C-n>
+
+" move through browser history
+map H <C-o>
+map L <C-i>
+
+" scroll settings
+let g:smoozy_scroll_amount="100"
