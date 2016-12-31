@@ -1,3 +1,5 @@
 [user]
 	name = Garo Brik
 	email = garo.brik@gmail.com
+[credential "https://github.com"]
+	username = gbrik
