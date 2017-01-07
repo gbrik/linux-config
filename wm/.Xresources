@@ -6,4 +6,6 @@ urxvt*font: xft:Source Code Pro:pixelsize=12
 ! urxvt*letterSpace: -2
 urxvt.scrollBar: false
 urxvt.internalBorder: 0
-xterm*faceName: Source Code Pro:pixelsize=12
+
+XTerm*faceName: Source Code Pro:pixelsize=12
+XTerm*selectToClipboard: true
