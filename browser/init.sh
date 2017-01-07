@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if type -p pacman >/dev/null; then
-    sudo pacman -Sy icecat
+if type -p yaourt >/dev/null; then
+    yaourt -Sy icecat
 else
     echo "No pacman, install icefox manually"
 fi
