@@ -3,7 +3,7 @@
 SCRIPTPATH=$(dirname $(readlink -f "$0"))
 
 if type -p pacman >/dev/null; then
-    sudo pacman -Sy emacs
+    sudo pacman -Sy emacs ttf-symbola
 else
     echo "No pacman, install emacs some other way"
 fi
