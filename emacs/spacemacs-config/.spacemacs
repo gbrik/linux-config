@@ -268,8 +268,11 @@ layers configuration. You are free to put any user code."
   (put 'company-coq-fold 'disabled nil)
 
   (setq flycheck-ghc-args '("-fno-warn-missing-signatures"))
+  (setq flycheck-pos-tip-timeout 300)
 
   (spacemacs/toggle-transparency)
+
+  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
