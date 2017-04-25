@@ -6,5 +6,5 @@ else
     echo "No pacman, install icecat manually"
 fi
 
-echo "Install vimperator"
+echo "Install vimperator, imagus"
 echo "Now run after-plugin.sh"

@@ -2,7 +2,7 @@
 map d <nop>
 
 " gui
-set gui=nonavigation
+" set gui=nonavigation
 
 " tab movement
 map J <C-p>
