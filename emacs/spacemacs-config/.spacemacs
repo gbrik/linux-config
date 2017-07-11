@@ -41,10 +41,13 @@ values."
      python
      yaml
      html
-     ;javascript
-     ;coq
-     ;ocaml
+     ipython-notebook
+     javascript
+     coq
+     ocaml
      vimscript
+     lua
+     csv
 
      ;; spell-checking
      auto-completion
@@ -113,11 +116,13 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(xresources
+   dotspacemacs-themes '(
+                         material-light
+                         wilson
                          jbeans
+                         jazz
                          spacemacs-dark
-                         colorsarenice-dark
-                         majapahit-dark)
+                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
