@@ -33,12 +33,13 @@ values."
               haskell-enable-ghci-ng-support t
               haskell-enable-ghc-mod-support t
               haskell-enable-hindent-style "chris-done"
-              haskell-enable-shm-support t
-              haskell-completion-backend 'intero)
+              haskell-enable-shm-support t)
+              ;haskell-completion-backend 'intero)
      (c-c++ :variables
             c-c++-enable-clang-support t)
      emacs-lisp
      python
+     ipython-notebook
      yaml
      html
      ipython-notebook
@@ -47,6 +48,7 @@ values."
      vimscript
      lua
      csv
+     nixos
 
      ;; langs with special install
      ;coq
@@ -261,7 +263,8 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
-  ;;(set-fontset-font t 'unicode "Symbola" nil 'prepend)
+  (set-fontset-font t 'unicode "Symbola" nil 'prepend)
+  (setq-default exec-path-from-shell-variables '())
   )
 
 (defun dotspacemacs/user-config ()
