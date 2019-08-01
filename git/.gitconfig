@@ -4,4 +4,4 @@
 [credential "https://github.com"]
 	username = gbrik
 [credential]
-	helper = cache --timeout 7200
+	helper = store
