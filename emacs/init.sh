@@ -16,3 +16,10 @@ rm -r "$HOME/.emacs.d/private"
 
 ln -s "$SCRIPTPATH/spacemacs-config" "$HOME/.emacs.d/private"
 ln -s "$HOME/.emacs.d/private/.spacemacs" "$HOME/.spacemacs"
+
+mkdir -p "$HOME/.config/systemd/user"
+ln -s "$SCRIPTPATH/emacs.service" "$HOME/.config/systemd/user/emacs.service"
+systemctl --user enable emacs
+systemctl --user restart emacs
+
+echo "alias em='emacsclient -t'" >> ~/.bashrc
