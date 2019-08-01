@@ -4,8 +4,10 @@ SCRIPTPATH=$(dirname $(readlink -f "$0"))
 
 if type -p pacman >/dev/null; then
     sudo pacman -Sy emacs ttf-symbola
+elif type -p apt >/dev/null; then
+    sudo apt install emacs25 fonts-symbola
 else
-    echo "No pacman, install emacs some other way"
+    echo "Couldn't install packages"
 fi
 
 git clone https://github.com/syl20bnr/spacemacs "$HOME/.emacs.d"
