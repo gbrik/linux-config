@@ -44,11 +44,14 @@ values."
      html
      ipython-notebook
      javascript
-     ocaml
+     ;ocaml
      vimscript
      lua
      csv
      nixos
+     go
+     erlang
+     elixir
 
      ;; langs with special install
      ;coq
@@ -122,10 +125,10 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          material-light
-                         wilson
-                         jbeans
-                         jazz
                          spacemacs-dark
+                         ;; jbeans
+                         ;; wilson
+                         ;; jazz
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -265,6 +268,14 @@ any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
   (set-fontset-font t 'unicode "Symbola" nil 'prepend)
   (setq-default exec-path-from-shell-variables '())
+  (defun on-after-init (&optional frame)
+    (let ((frame (or frame (selected-frame))))
+      (unless (display-graphic-p frame)
+        (set-face-background 'default "unspecified-bg" frame))))
+
+  (add-hook 'window-setup-hook 'on-after-init)
+  (add-hook 'focus-in-hook 'on-after-init)
+  (add-to-list 'after-make-frame-functions #'on-after-init)
   )
 
 (defun dotspacemacs/user-config ()
@@ -272,6 +283,10 @@ in `dotspacemacs/user-config'."
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+  (set-default 'preview-scale-function 0.7)
+  (setq TeX-view-program-selection
+        '((output-pdf "Zathura")))
+  (setq-default require-final-newline t)
 
   (setq global-visual-line-mode t)
 
@@ -282,7 +297,6 @@ layers configuration. You are free to put any user code."
 
   ;;(spacemacs/toggle-transparency)
 
-  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
