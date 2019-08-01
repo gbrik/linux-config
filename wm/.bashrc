@@ -60,5 +60,5 @@ function parse_git_dirty {
 }
 
 export PS1="\[\e[31m\]\u\[\e[m\] \[\e[36m\]\w\[\e[m\] \[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
-export BROWSER=/usr/bin/chromium
+export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/vim
