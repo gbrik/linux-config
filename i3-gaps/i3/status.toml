@@ -1,0 +1,71 @@
+icons = "awesome"
+
+[theme]
+name = "plain"
+[theme.overrides]
+idle_bg = "#ffffffb0"
+alternating_tint_bg = "#ffffff00"
+info_bg = "#ffffffb0"
+good_bg = "#ffffffb0"
+warning_bg = "#ffffffb0"
+critical_bg = "#ffffffb0"
+separator = " "
+separator_bg = "#ffffffb0"
+separator_fg = "#ffffffb0"
+idle_fg = "#6d6d6c"
+warning_fg = "#bd9d2c"
+critical_fg = "#bd2d2c"
+info_fg = "#2d2dbc"
+good_fg = "#6dad6c"
+
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = ""
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "custom"
+command = "curl 'wttr.in?format=%l:+%c+%t+%p+%w+%h'"
+interval = 3600
+
+[[block]]
+block = "music"
+player = "spotify"
+buttons = ["prev", "play", "next"]
+on_collapsed_click = "spotify"
+
+[[block]]
+block = "backlight"
+
+# [[block]]
+# block = "bluetooth"
+# mac = "C0:28:8D:4C:F1:2B"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "battery"
+driver = "upower"
+format = "{percentage}% {time}"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"

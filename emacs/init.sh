@@ -3,9 +3,9 @@
 SCRIPTPATH=$(dirname $(readlink -f "$0"))
 
 if type -p pacman >/dev/null; then
-    sudo pacman -Sy emacs ttf-symbola
+    sudo pacman -Sy emacs ttf-symbola xclip xsel
 elif type -p apt >/dev/null; then
-    sudo apt install emacs25 fonts-symbola
+    sudo apt install emacs25 fonts-symbola xclip xsel
 else
     echo "Couldn't install packages"
 fi

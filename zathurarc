@@ -1,5 +1,15 @@
 set selection-clipboard clipboard
 set first-page-column 1:1
-set recolor
 set recolor-darkcolor "#AAAAAA"
 set recolor-lightcolor "#222222"
+set default-bg "#FFFFFF"
+set statusbar-bg "#FFFFFF"
+set statusbar-fg "#222222"
+set inputbar-bg "#FFFFFF"
+set inputbar-fg "#222222"
+set completion-bg "#FFFFFF"
+set completion-fg "#222222"
+set completion-highlight-bg "#DDDDDD"
+set completion-group-bg "#CCCCCC"
+set completion-group-fg "#222222"
+set window-title-basename true

@@ -1,0 +1,219 @@
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+
+font pango:DejaVu Sans Mono 8
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up k
+set $down j
+set $left h
+set $right l
+
+set $mod Mod4
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec kitty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+space exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+set $move ~/.config/i3/move.sh
+# move focused window
+bindsym $mod+Shift+$left exec $move snap left
+bindsym $mod+Shift+$down exec $move snap down
+bindsym $mod+Shift+$up exec $move snap up
+bindsym $mod+Shift+$right exec $move snap right
+
+# split in horizontal orientation
+bindsym $mod+slash split h
+
+# split in vertical orientation
+bindsym $mod+minus split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+w focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+n move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+n scratchpad show
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9:"
+set $ws10 "10:"
+
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  # These bindings trigger as soon as you enter the resize mode
+  bindsym $left       resize shrink width 10 px or 10 ppt
+  bindsym $down       resize grow height 10 px or 10 ppt
+  bindsym $up         resize shrink height 10 px or 10 ppt
+  bindsym $right      resize grow width 10 px or 10 ppt
+
+  bindsym Shift+$left exec $move left
+  bindsym Shift+$down exec $move down
+  bindsym Shift+$up exec $move up
+  bindsym Shift+$right exec $move right
+
+  bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym Shift+XF86MonBrightnessUp exec xbacklight + 10 # increase screen brightness
+bindsym Shift+XF86MonBrightnessDown exec xbacklight - 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight = 100 # max screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight = 1 # min screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym $mod+m exec curl -X POST "https://api.lifx.com/v1/lights/label:Garnet/toggle" \
+     -H "Authorization: Bearer c3e6024fb52418448c495345174734f8dc6d7fd8e27b24f52ecf25edc53301ba"
+bindsym $mod+d exec curl -X PUT "https://api.lifx.com/v1/lights/label:Garnet/state" \
+     -H "Authorization: Bearer c3e6024fb52418448c495345174734f8dc6d7fd8e27b24f52ecf25edc53301ba" \
+     -d "brightness=0.2" \
+     -d "power=on"
+bindsym $mod+Shift+d exec curl -X POST "https://api.lifx.com/v1/lights/label:Garnet/state/delta" \
+     -H "Authorization: Bearer c3e6024fb52418448c495345174734f8dc6d7fd8e27b24f52ecf25edc53301ba" \
+     -d "brightness=-0.1"
+bindsym $mod+b exec curl -X PUT "https://api.lifx.com/v1/lights/label:Garnet/state" \
+     -H "Authorization: Bearer c3e6024fb52418448c495345174734f8dc6d7fd8e27b24f52ecf25edc53301ba" \
+     -d "brightness=1.0" \
+     -d "power=on"
+bindsym $mod+Shift+b exec curl -X POST "https://api.lifx.com/v1/lights/label:Garnet/state/delta" \
+     -H "Authorization: Bearer c3e6024fb52418448c495345174734f8dc6d7fd8e27b24f52ecf25edc53301ba" \
+     -d "brightness=0.1"
+
+bindsym $mod+s exec pkill compton && flameshot gui && compton -b
+
+## preety
+
+client.focused          "#ffffffb0" "#ffffffb0" "#2d2d2d" "#2d6d2d" "#ffffffb0"
+client.focused_inactive "#ffffffb0" "#ffffffb0" "#2d2d2d" "#2d6d2d" "#ffffffb0"
+client.unfocused        "#bbbbbbb0" "#bbbbbbb0" "#2d2d2d" "#2d6d2d" "#bbbbbbb0"
+
+bar {
+  status_command ~/.cargo/bin/i3status-rs ~/.config/i3/status.toml
+  i3bar_command i3bar -t
+  font pango:DejaVu Sans Mono, FontAwesome 12
+  position bottom
+  strip_workspace_numbers yes
+
+  colors {
+    background "#ffffffb0"
+    separator  "#00000000"
+
+#                      BORDER       BACKGROUND   TEXT
+    focused_workspace  "#ffffffb0"  "#ffffffb0"  "#6d6d6c"
+    inactive_workspace "#ffffffb0"  "#ffffffb0"  "#9d9d9d"
+    active_workspace   "#ffffffb0"  "#ffffffb0"  "#9d9d9d"
+    urgent_workspace   "#ffffffb0"  "#ffffffb0"  "#bd2d2d"
+    binding_mode       "#ffffffb0"  "#ffffffb0"  "#2d2dbd"
+  }
+}
+
+for_window [class="^.*"] border pixel 0
+
+gaps inner 15
+gaps outer 0
+
+exec --no-startup-id feh --bg-scale "$HOME/linux-config/i3-gaps/walls/fall-forest.png"
+exec --no-startup-id compton
+exec --no-startup-id ~/.config/i3/staypresent.sh
+#exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
