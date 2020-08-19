@@ -2,7 +2,7 @@
 
 SCRIPTPATH=$(dirname $(readlink -f "$0"))
 
-if command -v apt &> /dev/null; then
+if command -v apt > /dev/null; then
     sudo add-apt-repository ppa:kgilmer/speed-ricer
     sudo apt update
     sudo apt install i3-gaps-wm feh compton undistract-me playerctl zathura
