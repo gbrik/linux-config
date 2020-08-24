@@ -9,3 +9,6 @@ else
 fi
 
 ln -s $SCRIPTPATH/.zshrc $HOME/
+
+echo "install antibody then run"
+echo "$ antibody bundle < .zsh_plugins > .zsh_plugins.sh"
