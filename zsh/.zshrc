@@ -9,7 +9,7 @@ alias chromium='chromium --disable-gpu'
 
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-eval $(dircolors -b $HOME/.dircolors)
+eval $(dircolors -b ~/linux-config/.zsh/.dircolors)
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 alias ls='ls --color'
 
