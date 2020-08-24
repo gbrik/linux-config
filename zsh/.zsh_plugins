@@ -1,0 +1,16 @@
+romkatv/powerlevel10k
+
+robbyrussell/oh-my-zsh path:plugins/vi-mode
+robbyrussell/oh-my-zsh path:plugins/colored-man-pages
+robbyrussell/oh-my-zsh path:plugins/colorize
+robbyrussell/oh-my-zsh path:plugins/command-not-found
+robbyrussell/oh-my-zsh path:plugins/copydir
+robbyrussell/oh-my-zsh path:plugins/cp
+robbyrussell/oh-my-zsh path:plugins/dircycle
+robbyrussell/oh-my-zsh path:plugins/history
+robbyrussell/oh-my-zsh path:plugins/web-search
+
+chrissicool/zsh-256color
+trapd00r/zsh-syntax-highlighting-filetypes
+agkozak/zsh-z
+MichaelAquilina/zsh-auto-notify
